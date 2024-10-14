@@ -1,1 +1,1 @@
-# learning-rust
+**Disclaimer:** the following content was extracted and adapted from Alura's ["Rust: a linguagem de programação performática e segura"](https://cursos.alura.com.br/course/rust-linguagem-programacao-performatica-segura) course.
