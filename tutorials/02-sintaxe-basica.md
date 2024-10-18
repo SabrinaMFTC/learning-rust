@@ -225,3 +225,156 @@ Vimos que em Rust as variáveis são imutáveis por padrão e também aprendemos
 
 # 03 - Recursos Específicos
 
+Neste tutorial, vamos explorar alguns conceitos fundamentais da linguagem Rust, como **escopo** e a peculiaridade de **redeclaração de variáveis**, com foco no comportamento de **shadowing**.
+
+## Escopo em Rust
+
+Em Rust, o conceito de **escopo** está diretamente relacionado a blocos de código delimitados por chaves `{}`. Sempre que um bloco é aberto e fechado, criamos um novo escopo. Variáveis declaradas dentro de um escopo só podem ser acessadas dentro desse mesmo escopo.
+
+Por exemplo:
+
+```rust
+fn escopo() {
+    let decimal = 10.5;
+    // Variável 'decimal' acessível apenas dentro deste bloco
+}
+
+fn main() {
+    escopo();
+    // Acessar 'decimal' aqui causará um erro de compilação
+}
+```
+
+Ao tentar acessar uma variável fora do seu escopo, o compilador retornará um erro informando que a variável não está disponível naquele contexto. Esse comportamento é comum em diversas linguagens de programação.
+
+## Redeclaração de Variáveis
+
+Uma característica interessante do Rust é a possibilidade de redeclarar variáveis, algo não muito comum em linguagens com **tipagem estática**. Veja o exemplo a seguir:
+
+```rust
+fn main() {
+    let x = 100;
+    let x = 200; // Redeclaração de 'x'
+    println!("x = {}", x); // Exibe: x = 200
+}
+```
+
+Embora o Rust permita essa prática, o compilador emitirá um aviso caso a primeira variável não seja utilizada. No entanto, o código será compilado sem erros.
+
+Essa prática de redeclaração não transforma a variável em **mutável**. O Rust está simplesmente alocando um novo espaço de memória para a nova declaração, sem utilizar o mesmo local de memória da primeira variável.
+
+## Shadowing (Sombras)
+
+O **shadowing** é um comportamento particular do Rust, onde é possível redeclarar uma variável dentro de um novo escopo, "encobrindo" a variável de mesmo nome existente no escopo externo. Veja o exemplo:
+
+```rust
+fn sombra() {
+    let a = 123;
+    {
+        let a = 777; // Variável 'a' sombreando a anterior
+        println!("Dentro do escopo: a = {}", a); // Exibe: a = 777
+    }
+    println!("Fora do escopo: a = {}", a); // Exibe: a = 123
+}
+```
+
+Nesse caso, a variável `a` dentro do bloco interno não é a mesma variável `a` declarada no escopo externo. Quando o bloco interno termina, a variável `a` definida dentro dele deixa de existir, e a variável `a` do escopo externo continua inalterada.
+
+Esse comportamento pode ser útil, mas também requer atenção para evitar confusão e erros inesperados. O **shadowing** pode ser utilizado para criar variáveis temporárias sem modificar as variáveis do escopo externo.
+
+## Strings em Rust
+
+Strings em Rust são um tipo mais complexo do que simples vetores de caracteres. Quando declaramos uma string como `let minha_string = "exemplo";`, estamos lidando com uma referência para um tipo chamado **`&'static str`**. Esse tipo de string é alocado em uma área estática do programa e não pode ser manipulada como um vetor.
+
+Por exemplo, não podemos acessar diretamente posições de uma string como em outras linguagens. Isso ocorre porque `&str` é uma fatia de uma string, ou seja, uma referência para uma sequência de caracteres. Entraremos em mais detalhes sobre strings e referências em tutoriais futuros.
+
+## Conclusão
+
+Neste tutorial, abordamos:
+
+1. O conceito de **escopo** em Rust e como variáveis são limitadas ao escopo onde foram criadas.
+2. A possibilidade de **redeclaração de variáveis** em Rust, sem transformá-las em mutáveis.
+3. O comportamento de **shadowing**, onde uma variável de mesmo nome pode "sombrar" uma variável externa dentro de um novo escopo.
+
+Esses conceitos são fundamentais para entender como o Rust lida com memória e organização de código. É importante nomear as variáveis com cuidado para evitar comportamentos inesperados, especialmente ao lidar com **shadowing**.
+
+No próximo tutorial, exploraremos outros conceitos mais avançados, incluindo a manipulação de strings em Rust.
+
+---
+
+# 04 - Funções
+
+Até o momento, utilizamos algumas funções sem discutir seus detalhes. Essas funções não recebem argumentos nem possuem retorno. Vamos entender como lidar com funções que recebem parâmetros e retornam valores.
+
+## Funções sem Retorno
+
+Se uma função não declara um retorno explícito, significa que ela não retorna nenhum valor. Ao contrário das variáveis, não podemos omitir o tipo de retorno. Para exemplificar, criaremos uma função simples de soma que recebe dois valores e retorna a soma.
+
+```rust
+fn soma(a: i32, b: i32) -> i32 {
+    println!("{} + {} = {}", a, b, a + b);
+    a + b // Sem ponto e vírgula para indicar retorno
+}
+```
+
+Nesse exemplo, a função `soma` recebe dois inteiros de 32 bits e retorna um inteiro de 32 bits. O operador `->` indica o tipo de retorno. Além disso, a última expressão da função (sem ponto e vírgula) é o valor retornado.
+
+### Uso de Operadores Matemáticos
+
+Rust suporta os operadores matemáticos básicos, como soma (`+`), subtração (`-`), multiplicação (`*`), e divisão (`/`). Para operações mais avançadas, como potência ou raiz quadrada, é possível utilizar funções específicas da biblioteca padrão.
+
+## Retornando Valores de Funções
+
+Em Rust, praticamente tudo é uma expressão que pode resultar em um valor. Isso inclui funções, que podem ser usadas em outros contextos como expressões. No exemplo abaixo, usamos a função `soma` dentro de um `println!`:
+
+```rust
+fn main() {
+    println!("Soma = {}", soma(2, 2));
+}
+```
+
+Ao executar esse código, o valor 4 será exibido. Importante destacar que, para retornar o valor de uma função, a última expressão não deve ter ponto e vírgula. O ponto e vírgula em Rust não é opcional; ele possui um significado: ignorar o resultado da expressão.
+
+### Early Return
+
+Se for necessário retornar antecipadamente dentro de uma função, o Rust permite o uso da palavra-chave `return`. No entanto, essa abordagem é mais comumente usada em estruturas como `if` e loops.
+
+## Recapitulando
+
+- Funções podem receber parâmetros, e é obrigatório especificar o tipo de cada parâmetro.
+- O tipo de retorno é indicado após o símbolo `->`.
+- Para retornar um valor, a última expressão da função não deve ter ponto e vírgula.
+- O uso do `return` é possível, mas em muitos casos a última expressão da função já é suficiente para o retorno.
+
+## Próximos Passos
+
+Agora que compreendemos o básico sobre funções e variáveis, é hora de avançar para o controle de fluxo em Rust. No próximo capítulo, exploraremos como utilizar `if`, `loop` e outras estruturas para controlar a execução do programa.
+
+## Questão: Definindo funções
+
+Qual das alternativas a seguir é verdadeira sobre funções em Rust? (*Selecione uma alternativa*)
+
+**A.** O tipo de retorno da função é opcional.
+
+**B.** A última expressão sempre é o retorno da função.
+
+**C.** Para que uma função retorne algo, precisamos especificar o tipo de retorno.
+
+**Resposta**
+
+**A.** Incorreta. Se não definirmos o retorno, a função não poderá retornar um valor.
+
+**B.** Incorreta. Precisamos omitir o `;` para que a expressão seja usada como retorno.
+
+**C.** Correta. Se não definirmos o retorno, a função não poderá retornar um valor. Além disso, a última expressão não deve conter `;` para que seu valor seja usado como retorno.
+
+---
+
+# 05 - O que aprendemos?
+
+Nesta aula, aprendemos:
+
+- Os **tipos primitivos** de Rust;
+- Como declarar **variáveis**;
+- Sobre **escopo** e **shadowning** em Rust;
+- Como declarar **funções** em Rust.
