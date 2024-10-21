@@ -17,6 +17,8 @@ Cargo.lock
 
 *.json
 
+*.toml
+
 node_modules/
 
 # RustRover
