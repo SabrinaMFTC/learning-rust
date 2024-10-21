@@ -1,10 +1,8 @@
 # 01 - Introdução
 
-Sejam bem-vindos ao curso de **Rust**. Neste treinamento, vamos explorar a linguagem de programação **Rust**, destacando suas características e as diferenças em relação a outras linguagens do mercado. Nosso objetivo é entender o que torna o **Rust** uma escolha especial para desenvolvimento.
-
 ## Preparação do Ambiente
 
-O primeiro passo será configurar o ambiente de desenvolvimento. Vamos instalar o **compilador** e executar nosso código a partir dele. Esse processo é essencial para começarmos a programar em **Rust**.
+Inicialmente, iremos configurar o ambiente de desenvolvimento. Vamos instalar o **compilador** e executar nosso código a partir dele. Esse processo é essencial para começarmos a programar em **Rust**.
 
 ## Conceitos Básicos
 
@@ -134,15 +132,15 @@ Esses comandos exibirão a versão do rustup e do rustc instalados. Mesmo que su
 ## Criando e executando o primeiro código
 Agora que o Rust está instalado, podemos escrever nosso primeiro código, o tradicional "Hello World".
 
-**1.** Crie um arquivo chamado main.rs com o seguinte conteúdo:
+**1.** Crie um arquivo chamado `main.rs` com o seguinte conteúdo:
 
 ```rust
 fn main() {
-    println!("Ola mundo!");
+    println!("Hello World!");
 }
 ```
 
-**2.** Salve o arquivo e volte ao terminal. Para compilar o código, utilize o compilador do Rust, rustc:
+**2.** Salve o arquivo e volte ao terminal. Para compilar o código, utilize o compilador do Rust, `rustc`:
 
 ```bash
 rustc main.rs
@@ -154,7 +152,7 @@ rustc main.rs
 ./main.exe
 ```
 
-Isso exibirá a mensagem **"Ola mundo!"** no terminal.
+Isso exibirá a mensagem **"Hello World!"** no terminal.
 
 ## Conclusão
 
@@ -168,4 +166,4 @@ Nesta aula, aprendemos:
 
 - O que é e para que serve o **Rust**, além dos motivos para se utilizar essa linguagem;
 - Como configurar o ambiente de desenvolvimento **Rust**;
-- Como compilar o primeiro código utilizando o **rustc**.
+- Como compilar o primeiro código utilizando o `rustc`.

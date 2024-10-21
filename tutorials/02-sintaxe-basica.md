@@ -225,7 +225,7 @@ Vimos que em Rust as variáveis são imutáveis por padrão e também aprendemos
 
 # 03 - Recursos Específicos
 
-Neste tutorial, vamos explorar alguns conceitos fundamentais da linguagem Rust, como **escopo** e a peculiaridade de **redeclaração de variáveis**, com foco no comportamento de **shadowing**.
+Vamos explorar alguns conceitos fundamentais da linguagem Rust, como **escopo** e a peculiaridade de **redeclaração de variáveis**, com foco no comportamento de **shadowing**.
 
 ## Escopo em Rust
 
@@ -290,7 +290,7 @@ Por exemplo, não podemos acessar diretamente posições de uma string como em o
 
 ## Conclusão
 
-Neste tutorial, abordamos:
+Nesta aula, abordamos:
 
 1. O conceito de **escopo** em Rust e como variáveis são limitadas ao escopo onde foram criadas.
 2. A possibilidade de **redeclaração de variáveis** em Rust, sem transformá-las em mutáveis.
@@ -341,7 +341,7 @@ Se for necessário retornar antecipadamente dentro de uma função, o Rust permi
 
 ## Recapitulando
 
-- Funções podem receber parâmetros, e é obrigatório especificar o tipo de cada parâmetro.
+- Funções podem receber parâmetros e é obrigatório especificar o tipo de cada parâmetro.
 - O tipo de retorno é indicado após o símbolo `->`.
 - Para retornar um valor, a última expressão da função não deve ter ponto e vírgula.
 - O uso do `return` é possível, mas em muitos casos a última expressão da função já é suficiente para o retorno.

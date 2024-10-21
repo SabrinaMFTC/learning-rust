@@ -1,6 +1,6 @@
 # 01 - Estruturas Condicionais
 
-Neste capítulo, exploraremos como controlar o fluxo de execução em Rust utilizando estruturas condicionais. Vamos entender como usar o `if`, `else`, e outras construções para guiar o comportamento do programa.
+Neste capítulo, exploraremos como controlar o fluxo de execução em Rust utilizando estruturas condicionais. Vamos entender como usar `if`, `else`, e outras construções para guiar o comportamento do programa.
 
 ## Estrutura Básica do `if`
 
@@ -145,7 +145,7 @@ Quais das seguintes alternativas são verdadeiras sobre `ifs` no Rust? (*Selecio
 
 # 02 - Estruturas de Repetição `while` e `loop`
 
-Neste tutorial, vamos abordar como implementar loops em Rust. Se você já está familiarizado com outras linguagens procedurais ou imperativas, perceberá que a lógica é bastante semelhante. Vamos começar implementando uma função simples para organizar nosso código.
+Neste capítulo, vamos abordar como implementar loops em Rust. Se você já está familiarizado com outras linguagens procedurais ou imperativas, perceberá que a lógica é bastante semelhante. Vamos começar implementando uma função simples para organizar nosso código.
 
 ## Função `repeticoes()`
 
@@ -235,7 +235,7 @@ Neste tutorial, vimos como utilizar as estruturas `while`, `loop`, e as instruç
 
 # 03 - Estrutura de Repetição `for`
 
-Neste tutorial, vamos explorar a estrutura de repetição `for` em Rust. Diferente de outras linguagens, o `for` em Rust funciona de forma semelhante ao `for each`, percorrendo intervalos ou iteradores.
+Nesta aula, vamos explorar a estrutura de repetição `for` em Rust. Diferente de outras linguagens, o `for` em Rust funciona de forma semelhante ao `for each`, percorrendo intervalos ou iteradores.
 
 ## Estrutura Básica do `for`
 
@@ -273,15 +273,6 @@ Neste exemplo, percorremos o intervalo de 1 a 10 e exibimos a tabuada de 5.
 ## Benefícios do `for`
 
 Uma das vantagens do `for` em Rust é que ele gerencia automaticamente o contador e o fluxo de controle. Não há necessidade de incrementar variáveis ou adicionar condições de parada manualmente, como acontece com estruturas `while` ou `loop`.
-
-### Compilação e Execução
-
-Para compilar e executar o código:
-
-```bash
-rustc main.rs
-./main
-```
 
 ## Considerações Finais
 
