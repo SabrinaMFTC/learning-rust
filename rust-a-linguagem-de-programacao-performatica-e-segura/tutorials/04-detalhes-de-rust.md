@@ -91,7 +91,7 @@ No que consiste o princípio de `borrowing` em Rust? (*Selecione uma alternativa
 
 **C.** Realizar cópia de dados na heap de forma mais rápida.
 
-## Resposta
+**Resposta**
 
 **A.** Incorreta. `Move semantics` é justamente o que evitamos ao utilizar `borrowing`. A ideia de `move semantics` é, basicamente, invalidar a variável original.
 

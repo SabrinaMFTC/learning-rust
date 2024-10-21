@@ -133,7 +133,7 @@ Quais das seguintes alternativas são verdadeiras sobre `ifs` no Rust? (*Selecio
 
 **C.** `if` é uma expressão, logo, pode ser usado como um valor qualquer.
 
-## Resposta
+**Resposta**
 
 **A.** Correta. Os parênteses são opcionais.
 
